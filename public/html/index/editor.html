@@ -1,0 +1,45 @@
+ <div class="row clearfix">
+      <div class="col-md-12 column">
+         <div class="row clearfix">
+         <div class="col-md-3 column" ng-controller="treeCtrl">
+            <h2>{{name}}</h2>
+            <treecontrol class="tree-classic"
+               tree-model="dataForTheTree"
+               options="treeOptions"
+               on-selection="showSelected(node)"
+               selected-node="node1">
+
+                <span ng-click='itemClick(node)'>{{node.name}}</span>
+
+            </treecontrol>
+         </div>
+         <div class="col-md-9 column">
+
+            <div class="btn-group">
+               <button class="btn btn-default" ng-click="saveFile()" type="button">
+                  <em class="glyphicon glyphicon-align-left">
+                  </em>
+                  保存
+               </button>
+               <button class="btn btn-default" type="button">
+                  <em class="glyphicon glyphicon-align-center">
+                  </em>
+                  中
+               </button>
+               <button class="btn btn-default" type="button">
+                  <em class="glyphicon glyphicon-align-right">
+                  </em>
+                  右
+               </button>
+               <button class="btn btn-default" type="button">
+                  <em class="glyphicon glyphicon-align-justify">
+                  </em>
+                  全
+               </button>
+            </div><!-- btn-group end-->
+            
+            <div id='editor'></div>
+         </div>
+      </div>
+      </div>
+</div>

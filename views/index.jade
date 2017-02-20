@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  style(type='text/css', media='screen').
+    #editor{
+      height:500px;
+    }
+  script(type="text/javascript",data-main="/javascripts/index/main",src="/requirejs/require.js")
+  h1= title
+  div(ng-view)
+

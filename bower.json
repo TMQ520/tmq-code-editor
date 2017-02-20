@@ -1,0 +1,27 @@
+{
+  "name": "tmq-code-editor",
+  "description": "this a project",
+  "main": "",
+  "authors": [
+    "tmq"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "requirejs": "^2.3.2",
+    "angular": "^1.6.2",
+    "bootstrap": "^3.3.7",
+    "require-css": "^0.1.8",
+    "angular-route": "^1.6.2",
+    "ace": "^1.2.6",
+    "angular-tree-control": "^0.2.28"
+  }
+}
