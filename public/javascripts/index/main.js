@@ -7,6 +7,7 @@ require.config({
     	'angular': '/angular/angular', //引入angular
     	'angular-route': '/angular-route/angular-route', //引入angular-route
     	'angular-tree': '/angular-tree-control/angular-tree-control', //引入angular-tree-control
+    	"context":"/context/index", //引入context
 		'jquery': "/jquery/dist/jquery", //引入jQuery,
     	'nav': '/javascripts/common/nav',
     	'navCtrl': '/javascripts/common/navCtrl'
@@ -23,6 +24,12 @@ require.config({
 	      exports: 'angular',
 	      deps:['bootstrap']
 	    },
+	    "context":{
+			exports:"context",
+			deps:[
+			"css!/context.standalone/index.css",
+			]
+		},
 	    'angular-route': {
 	      exports: 'angular-route',
 	      deps:['angular']
@@ -59,9 +66,11 @@ require.config({
 require([
 		'bootstrap',
 	    'angular',
+	    'context',
 	    'angular-route',
 	    'angular-tree',
 	    'route',   
+	    'RightBtnDire',   
 	    'IndexCtrl',   
 	    'editorCtrl',   
 	    'treeCtrl',   
@@ -69,7 +78,8 @@ require([
 	    'nav',   
 	    'navCtrl',   
 	    'ace',   
-	    'ext-language'
+	    'ext-language',
+	    'ace_config'
 		],function (boot,angular) {
 	    angular.bootstrap(document,['indexApp']);
 });

@@ -34,8 +34,7 @@ router.post('/readFile',function (req, res, next) {
 router.post('/saveFile',function (req, res, next) {
 	if(req.body.path) {
 		fs.writeFileSync(req.body.path, req.body.content);	//同步写入文件
-		res.send("完成"); //服务器缓存有问题 即文件必须有修改，才会反映到http
-		//.post上
+		res.send("保存完成"); //服务器缓存有问题 即文件必须有修改，才会反映到http.post上
 	}
 });
 

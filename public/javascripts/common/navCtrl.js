@@ -3,7 +3,7 @@ define(['app'],function (app) {
 		scope.navdata = {
 			brand: "E-Canal",
 			left:[
-				{url:'http://www.yuyigufen.com',val:'宇易'},
+				{url:'/#!/editor',val:'宇易'},
 				{
 					val: "e运河",
 					dropdown: true,	//用来显示下拉列表

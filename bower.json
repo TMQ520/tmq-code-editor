@@ -22,6 +22,9 @@
     "require-css": "^0.1.8",
     "angular-route": "^1.6.2",
     "ace": "^1.2.6",
-    "angular-tree-control": "^0.2.28"
+    "angular-tree-control": "^0.2.28",
+    "context.standalone": "http://lab.jakiestfu.com/contextjs/context.standalone.css",
+    "context": "http://lab.jakiestfu.com/contextjs/context.js",
+    "ejs": "^1.0.0"
   }
 }

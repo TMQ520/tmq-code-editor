@@ -21,10 +21,10 @@
                   </em>
                   保存
                </button>
-               <button class="btn btn-default" type="button">
+               <button class="btn btn-default" type="button" ng-click='removeFile()'>
                   <em class="glyphicon glyphicon-align-center">
                   </em>
-                  中
+                  删除文件
                </button>
                <button class="btn btn-default" type="button">
                   <em class="glyphicon glyphicon-align-right">
@@ -38,7 +38,7 @@
                </button>
             </div><!-- btn-group end-->
             
-            <div id='editor'></div>
+            <div id='editor' my-right-click='rightBtnClick($event)'></div>
          </div>
       </div>
       </div>
