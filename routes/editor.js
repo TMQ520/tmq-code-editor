@@ -25,7 +25,7 @@ router.get('/filetree', function (req, res, next) {
 //读文件
 router.post('/readFile',function (req, res, next) {
 	if(req.body.path) {	//拿到传过来的 node.path
-		var content = muitls.fs.read(req.body.path);
+		var content = fs.readFileSync(req.body.path);	//用fs可解决缓存更新问题
 		res.send(content);	//发送响应
 	}
 });

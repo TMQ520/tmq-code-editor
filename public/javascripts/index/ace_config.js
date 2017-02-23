@@ -1,10 +1,11 @@
 define(['app','ace','context','ext-language'],function  (app) {
-	
+
+
 	var editor = {};
 	var topId = '';
 	var crrentFile = '';
 	//初始化ace
-	function aceInit (id) {
+	function aceInit (id,callback) {
 		topId = id;
 		editor = ace.edit(id); //添加ace的editor工具
 		
@@ -18,15 +19,17 @@ define(['app','ace','context','ext-language'],function  (app) {
 		document.getElementById(id).style.fontSize = '14px';
 		editor.setTheme("ace/theme/twilight");//添加主题
 		editor.getSession().setMode("ace/mode/javascript"); //设置程序语言模式 即这里可以设为java或者javascript
+		//注册键盘事件,激活保存文件
 		editor.commands.addCommand({
 			name: 'myCommand',
 			bindKey: {
 				win: 'Ctrl-S',
 				mac: 'Command-S'
 			},
-			exec: function (editor) {
-				alert("你是否要保存文件");
-			},
+			exec: function (editor) {//快捷键的操作
+				if(confirm('你是否要保存文件?'))
+					callback();
+			},		
 			readOnly: true // false if this command should not apply in readOnly mode 
 		});
 		return editor;	//返回出去  因为我们要使用editor工具 
@@ -34,28 +37,27 @@ define(['app','ace','context','ext-language'],function  (app) {
 
 	//TODO 要封装成service,因为依赖http服务
 	
-	app.provider('saveFileService',function () {
+	/*app.provider('saveFileService',function () {
 		this.$get = function ($http) {	//这里进行依赖注入
-			var factory = {};
+				var factory = {};
 
-			factory.saveFile = function () {
-				if(!crrentFile) {
-					return alert('没有选中的文件');
-				}
-				var obj = {
-					path: crrentFile.path,
-					content: editor.getValue()
+				factory.saveFile = function () {
+					if(!crrentFile) {
+						return alert('没有选中的文件');
+					}
+					var obj = {
+						path: crrentFile.path,
+						content: editor.getValue()
+					};
+
+					$http.post("/editor/saveFile", obj)
+					.then(function(data) {
+						alert(data.data);
+					});
 				};
-
-				$http.post("/editor/saveFile", obj)
-				.then(function(data) {
-					alert(data.data);
-				});
-			};
-			return factory;
+				return factory;
 		};
-	});
-
+	});*/
 	/*app.service('saveFileService',['$http',function (http) { //而它是在这里进行行内依赖注入
 		this.saveFile = function () {
 			if(!crrentFile) {
@@ -96,20 +98,20 @@ define(['app','ace','context','ext-language'],function  (app) {
 	}]);*/
 
 
-	// function saveFile (http) {
-		/*if(!crrentFile) {
+	/*function saveFile (http) {
+		if(!crrentFile) {
 			return alert('没有选中的文件');
-		}*/
-		// var obj = {
-			// path: crrentFile.path,
-			// content: editor.getValue()
-		// }
+		}
+		var obj = {
+			path: crrentFile.path,
+			content: editor.getValue()
+		}
 
-		// http.post("/editor/saveFile", obj)
-			// .then(function(data) {
-				// alert(data.data);
-		// });
-	// }
+		http.post("/editor/saveFile", obj)
+			.then(function(data) {
+				alert(data.data);
+		});
+	}*/
 
 	//初始化
 	context.init({

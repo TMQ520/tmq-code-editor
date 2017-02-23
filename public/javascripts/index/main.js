@@ -1,4 +1,4 @@
-require.config({
+require.config({ //配置依赖的路径
 
 	paths:{
 		'bootstrap': '/bootstrap/dist/js/bootstrap',  //引入bootstrap
@@ -63,6 +63,8 @@ require.config({
 	}
 });
 
+
+//用来加载依赖
 require([
 		'bootstrap',
 	    'angular',
