@@ -2,7 +2,7 @@ define(['app','angular-tree'],function (app) {
 	app.controller('treeCtrl',['$scope', '$http', function (scope,http) {
 		scope.name = 'temp';
 		http.get('/editor/filetree').then(function (data) {
-			scope.dataForTheTree = data.data;			
+			scope.dataForTheTree = data.data;
 		});
 
 		scope.treeOptions = {

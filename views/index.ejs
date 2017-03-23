@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/bootstrap/dist/css/bootstrap.css' />
+    <style type='text/css', media='screen'>
+		#editor{
+			height: 500px;
+		}
+    </style>
+    <script data-main='/javascripts/index/main' src='/requirejs/require.js'></script>
+  </head>
+  <body class='container-full'>
+  	<div ng-controller='navCtrl'>
+  		<nav-ecanal navdata="navdata"></nav-ecanal>
+  	</div>
+    <h1><%= title %></h1>
+    <div ng-view></div>
+  </body>
+</html>

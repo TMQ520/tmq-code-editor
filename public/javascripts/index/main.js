@@ -10,7 +10,10 @@ require.config({ //配置依赖的路径
     	"context":"/context/index", //引入context
 		'jquery': "/jquery/dist/jquery", //引入jQuery,
     	'nav': '/javascripts/common/nav',
-    	'navCtrl': '/javascripts/common/navCtrl'
+    	'navCtrl': '/javascripts/common/navCtrl',
+    	'mcodeTreeCtrl': '/javascripts/mcode/mcodeTreeCtrl',
+    	'arr2tree': '/javascripts/common/arr2tree',
+    	'treeContext': '/javascripts/mcode/treeContext'
 	},
 	shim:{ //用来加载不符合AMD规范的js文件
 		'bootstrap':{
@@ -73,6 +76,12 @@ require([
 	    'angular-tree',
 	    'route',   
 	    'RightBtnDire',   
+	    'treeContext',   
+	    'McodeService',   
+	    'arr2tree',   
+	    'mcodeCtrl',   
+	    'const',   
+	    'mcodeTreeCtrl',   
 	    'IndexCtrl',   
 	    'editorCtrl',   
 	    'treeCtrl',   
@@ -82,6 +91,7 @@ require([
 	    'ace',   
 	    'ext-language',
 	    'ace_config'
+	    
 		],function (boot,angular) {
 	    angular.bootstrap(document,['indexApp']);
 });

@@ -44,6 +44,12 @@ function deleteRow (obj) {
 	return runSql(sql,[obj.id]);
 }
 
+//向数据库删除数据 删除模块及它以下的子模块
+function deleteModel (obj) {
+	var sql = `delete from code_manager where id=? or parent_id=?`;
+	return runSql(sql,[obj.id,obj.id]);
+}
+
 //向数据库查询
 function getRow (obj) {
 	var sql = `select * from code_manager where id=?`;
@@ -92,7 +98,8 @@ module.exports = {
 	getRow: getRow,
 	deleteRow: deleteRow,
 	update: update,
-	insert: insert
+	insert: insert,
+	deleteModel: deleteModel
 };
 
 /*var promiseResult = getAll();

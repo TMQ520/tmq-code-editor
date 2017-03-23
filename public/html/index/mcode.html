@@ -1,0 +1,57 @@
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="alert alert-dismissable alert-info">
+				 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+				<h4>
+					当前编辑的是{{editorTitle}}
+				</h4> 
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row clearfix">
+	<div class="col-md-12 column">
+		<div class="row clearfix">
+			<div class="col-md-3 column" ng-controller="mcodeTreeCtrl">
+				<h2>{{name}}</h2>
+				<treecontrol class="tree-classic"
+				   tree-model="dataForTheTree"
+				   options="treeOptions"
+				   on-selection="showSelected(node)"
+				   selected-node="node1">
+
+				    <span my-right-click="nodeClick($event,node)" ng-class="{leaf:node.is_leaf,branch:!node.is_leaf}" ng-click="itemClick(node)">{{node.name}} </span>
+
+				</treecontrol>
+			</div>
+			<div class="col-md-9 column">
+
+				<div class="btn-group">
+					<button class="btn btn-default" ng-click="editTpl()" type="button">
+						<em class="glyphicon glyphicon-align-left">
+						</em>
+						编辑模板
+					</button>
+					<button ng-click="editConf()" class="btn btn-default" type="button">
+						<em class="glyphicon glyphicon-align-center">
+						</em>
+						编辑配置
+					</button>
+					<button ng-click='createCode()' class="btn btn-default" type="button">
+						<em class="glyphicon glyphicon-align-right">
+						</em>
+						生成代码
+					</button>
+					<button ng-click='saveCode()' class="btn btn-default" type="button">
+						<em class="glyphicon glyphicon-align-justify">
+						</em>
+						保存编辑
+					</button>
+				</div><!-- btn-group end-->
+
+				<div id="editor" my-right-click="rightBtnClick($event)"></div>
+			</div>
+		</div>
+	</div>
+</div>
